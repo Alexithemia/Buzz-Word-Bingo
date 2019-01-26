@@ -1,0 +1,23 @@
+{
+  "name": "buzz-word-bingo",
+  "version": "0.0.1",
+  "description": "API server for Buzzword game",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alexithemia/Buzz-Word-Bingo.git"
+  },
+  "author": "Tyler M",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alexithemia/Buzz-Word-Bingo/issues"
+  },
+  "homepage": "https://github.com/Alexithemia/Buzz-Word-Bingo#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4"
+  }
+}
