@@ -1,4 +1,7 @@
 let buzzWords = [];
+let totalScore = {
+  'totalScore': 0
+}
 
 function read() {
   return { "buzzWords": buzzWords };
@@ -11,6 +14,7 @@ function add(word) {
       doesntExist = false;
     }
   });
+
   if (doesntExist) {
     buzzWords.push(word);
   }
@@ -18,6 +22,10 @@ function add(word) {
 }
 
 function update(word) {
+  if (!word.buzzWord) {
+    return false;
+  }
+
   let exists = false;
   buzzWords.forEach(buzzWord => {
     if (buzzWord.buzzWord === word.buzzWord) {
@@ -29,6 +37,10 @@ function update(word) {
 }
 
 function deleteWord(word) {
+  if (!word.buzzWord) {
+    return false;
+  }
+
   let exists = false;
   buzzWords.forEach(buzzWord => {
     if (buzzWord.buzzWord === word.buzzWord) {
@@ -39,9 +51,35 @@ function deleteWord(word) {
   return exists;
 }
 
+function score(word) {
+  if (!word.buzzWord) {
+    return false;
+  }
+
+  let exists = false;
+  buzzWords.forEach(buzzWord => {
+    if (buzzWord.buzzWord === word.buzzWord) {
+      exists = true;
+      totalScore.totalScore += parseInt(buzzWord.points);
+    }
+  });
+
+  if (exists) {
+    return totalScore;
+  } else {
+    return false;
+  }
+}
+
+function reset() {
+  buzzWords.length = 0;
+}
+
 module.exports = {
   read,
   add,
   update,
-  deleteWord
+  deleteWord,
+  reset,
+  score
 }
