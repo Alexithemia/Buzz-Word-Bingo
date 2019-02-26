@@ -8,24 +8,24 @@ router.route('/')
   })
   .post(function (req, res) {
     if (buzzwords.add(req.body)) {
-      res.json({ "success": true })
+      res.json({ "success": true });
     } else {
       res.json({ "success": false });
-    }
+    };
   })
   .put(function (req, res) {
     if (buzzwords.update(req.body)) {
-      res.json({ "success": true })
+      res.json({ "success": true });
     } else {
       res.json({ "success": false });
-    }
+    };
   })
   .delete(function (req, res) {
     if (buzzwords.deleteWord(req.body)) {
-      res.json({ "success": true })
+      res.json({ "success": true });
     } else {
       res.json({ "success": false });
-    }
+    };
   });
 
 module.exports = router;
